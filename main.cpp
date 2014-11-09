@@ -15,10 +15,3 @@ int main(int argc, char *argv[])
 	return a.exec();
 }
 
-void QWidget::enterEvent(QEvent * event)
-{
-	MainWindow w;
-	QWidget* wd = w.findChild<QWidget*>("verticalWidget");
-	wd->move(100, 1000);
-	this->repaint();
-}

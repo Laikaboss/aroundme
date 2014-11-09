@@ -17,6 +17,8 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -31,13 +33,15 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
     QPushButton *pushButton;
+    QTextBrowser *textBrowser;
+    QTextEdit *textEdit;
     QMenuBar *menuBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(542, 521);
+        MainWindow->resize(643, 657);
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(100);
@@ -48,13 +52,17 @@ public:
 "	 background: rgb(150, 150, 150);\n"
 "}\n"
 "\n"
+"QWidget#verticalWidget:hover\n"
+"{\n"
+"	background-color:rgb(85,85,85);\n"
 "\n"
+"}\n"
 ""));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalWidget = new QWidget(centralWidget);
         verticalWidget->setObjectName(QStringLiteral("verticalWidget"));
-        verticalWidget->setGeometry(QRect(0, 0, 251, 651));
+        verticalWidget->setGeometry(QRect(0, 0, 261, 721));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -63,8 +71,14 @@ public:
         verticalWidget->setStyleSheet(QLatin1String("QWidget\n"
 "{\n"
 "	background-color:rgb(85,85,85);\n"
-"	width:10px;\n"
+"\n"
 "}\n"
+"QWidget:hover\n"
+"{\n"
+"	background-color:rgb(85,85,85);\n"
+"	padding-left:100px;\n"
+"}\n"
+"\n"
 "QPushButton \n"
 "{\n"
 "     background: rgb(85, 85, 85); \n"
@@ -132,10 +146,20 @@ public:
 
         verticalLayout->addWidget(pushButton, 0, Qt::AlignTop);
 
+        textBrowser = new QTextBrowser(centralWidget);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+        textBrowser->setGeometry(QRect(300, 110, 311, 291));
+        textEdit = new QTextEdit(centralWidget);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setGeometry(QRect(300, 410, 311, 71));
         MainWindow->setCentralWidget(centralWidget);
+        verticalWidget->raise();
+        pushButton_3->raise();
+        textBrowser->raise();
+        textEdit->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 542, 21));
+        menuBar->setGeometry(QRect(0, 0, 643, 21));
         MainWindow->setMenuBar(menuBar);
 
         retranslateUi(MainWindow);
@@ -149,6 +173,11 @@ public:
         pushButton_3->setText(QApplication::translate("MainWindow", "text", 0));
         pushButton_2->setText(QApplication::translate("MainWindow", "text", 0));
         pushButton->setText(QApplication::translate("MainWindow", "text", 0));
+        textEdit->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", 0));
     } // retranslateUi
 
 };
