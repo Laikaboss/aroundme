@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		"}"
 		);
 
-	btn->move(160, 150);
+	//btn->move(160, 150);
 	w.show();
 	return a.exec();
 }
