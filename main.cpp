@@ -4,7 +4,7 @@
 #include <QPushButton>
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+	QApplication a(argc, argv);
 	MainWindow w;
 	QPushButton *btn = new QPushButton(&w);
 	qApp->setStyleSheet(
@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
 		"border: none; "
 		"}"
 		);
-	
-	btn->move(160,150);
+
+	btn->move(160, 150);
 	w.show();
-    return a.exec();
+	return a.exec();
 }
